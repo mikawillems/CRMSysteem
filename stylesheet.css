@@ -1,47 +1,9 @@
-<?php
-
-if(!$_SESSION['role'] || $_SESSION['role'] === 'klant') header('location: index.php'); exit;
-
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
-$Servername = $_ENV['DB_HOST'] . ':' . $_ENV['DB_PORT'];
-$Username   = $_ENV['DB_USERNAME'];
-$Password   = $_ENV['DB_PASSWORD'];
-$Dbname     = $_ENV['DB_NAME'];
-
-$conn = new mysqli($Servername, $Username, $Password, $Dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT
-            `ID`,
-            `Voornaam`,
-            `Tussenvoegsel`,
-            `Achternaam`,
-            `Aantal gewerkte uren`
-        FROM `Uren`";
-
-$result = $conn->query($sql);
-
-if (!$result) {
-    die("SQL-fout: " . $conn->error);
-}
-?>
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-<meta charset="UTF-8">
-<title>Uren</title>
-
-<style>
-    body {
+body {
         margin: 0;
         font-family: Arial, sans-serif;
         background: #8e72ae;
+        
+        
     }
 
     /* Navigatiebalk */
@@ -51,7 +13,7 @@ if (!$result) {
     display: flex;
     justify-content: center;
     border-bottom: 3px solid #000000;
-    }
+}
 
 nav .links a {
     margin: 0;
@@ -162,7 +124,7 @@ table tr:hover {
 
     table th {
         background: #000000 !important;
-        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
         border-bottom: 2px solid #000000 !important;
         position: static !important;  /* <— Belangrijk: sticky uitschakelen in print */
     }
@@ -192,80 +154,3 @@ table tr:hover {
 .pdf-btn:hover {
     background: #786194;          /* donkerder rood */
 }
-``
-</style>
-
-</head>
-<body>
-
-<!-- Navigatie -->
-<nav>
-    <div class="links">
-        <a href="index.php">Home</a>
-        <a href="medewerkers.php">Medewerkers</a>
-        <a href="klanten.php">Klanten</a>
-        <a href="werkzaamheden.php">Werkzaamheden</a>
-        <a href="uren.php">Uren</a>
-        <a href="werkgevers.php">Werkgevers</a>
-        <a href="opdrachten.php">Opdrachten</a>
-    </div>
-
-    
-</nav>
-
-<!-- Klanten container -->
-<div class="container">
-
-    <div class="title-row">
-        <h1><span class="title-icon"></span> Uren</h1>
-        <button class="pdf-btn" onclick="window.print()">🖨️ Als PDF opslaan</button>
-
-        <div class="searchbar">
-            <input type="text" placeholder="zoeken...">
-            🔍
-        </div>
-    </div>
-
-    <table id="dataTable">
-        <tr>
-            <th>ID</th>
-            <th>Voornaam</th>
-            <th>Tussenvoegsel</th>
-            <th>Achternaam</th>
-            <th>Aantal gewerkte uren</th>
-        </tr>
-
-        <?php
-        if ($result && $result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>{$row['ID']}</td>";
-                echo "<td>{$row['Voornaam']}</td>";
-                echo "<td>{$row['Tussenvoegsel']}</td>";
-                echo "<td>{$row['Achternaam']}</td>";
-                echo "<td>{$row['Aantal gewerkte uren']}</td>";
-                echo "</tr>";
-            }
-        } else {
-            echo "<tr><td colspan='8'>Geen uren gevonden</td></tr>";
-        }
-        ?>
-    </table>
-
-</div>
-
-<script>
-// Zoekfunctie
-document.getElementById("search").addEventListener("input", function () {
-    const val = this.value.toLowerCase();
-    document.querySelectorAll("#dataTable tr").forEach((row, i) => {
-        if (i === 0) return;
-        row.style.display = row.textContent.toLowerCase().includes(val) ? "" : "none";
-    });
-});
-</script>
-
-</body>
-</html>
-
-<?php $conn->close(); ?>

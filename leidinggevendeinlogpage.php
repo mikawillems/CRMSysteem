@@ -1,7 +1,7 @@
 <?php
 
-session_start();
-require __DIR__ . '/vendor/autoload.php';
+if(!$_SESSION['role'] || $_SESSION['role'] === 'klant') header('location: index.php'); exit;
+if(!$_SESSION['role'] || $_SESSION['medewerker']) header('location: leidinggevendeinlogpage.php');
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
@@ -172,11 +172,25 @@ $dotenv->load();
 <body>
 
     <!-- Navigatie - consistent met alle andere pagina's -->
-    <?php include 'navbar.php' ?>
+    <nav>
+        <div class="links">
+            <a href="index.php">Home</a>
+            <a href="Employers.php">Werkgevers</a>
+            <a href="Workers.php">Werknemers</a>
+            <a href="klanten.php">Klanten</a>
+            <a href="opdrachten.php">Opdrachten</a>
+            <a href="werkzaamheden.php">Werkzaamheden</a>
+        </div>
+
+        <!-- Extra navigatie-elementen uit jouw code (alleen de login-knop blijft over) -->
+        <div class="nav-actions">
+            <button class="login-trigger" onclick="openLogin()">log in</button>
+        </div>
+    </nav>
 
     <div class="container">
 
-        <h1>Welkom in het CRM-Systeem</h1>
+        <h1>Welkom in het Urenregistratie Systeem</h1>
 
         <div class="content">
             <h2> Zoek, bekijk en beheer eenvoudig gegevens.<br>
@@ -189,9 +203,9 @@ $dotenv->load();
             <div class="popup-content">
                 <span onclick="closeLogin()" class="close">&times;</span>
 
-
-                <!-- Login buttons voor klant, medewerker, leidinggevende -->
-                <?php include 'loginbuttons.php' ?>
+                <button class="login-btn" onclick="attemptLogin()">log in als Klant</button>
+                <button class="login-btn" onclick="attemptLogin()">log in als Medewerker</button>
+                <button class="login-btn" onclick="attemptLogin()">log in als Leidinggevende</button>
             </div>
         </div>
 
@@ -205,6 +219,20 @@ $dotenv->load();
 
         function closeLogin() {
             document.getElementById("loginPopup").style.display = "none";
+        }
+
+        // Simpele login-demo (je kunt dit later vervangen door echte authenticatie)
+        function attemptLogin() {
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (username && password) {
+                alert("✅ Ingelogd als: " + username + "\n\n(Deze demo-logic kun je later vervangen door een echte PHP-sessie/login-systeem)");
+                closeLogin();
+                // Hier kun je later window.location = "medewerkers.php"; zetten als je direct wilt doorsturen
+            } else {
+                alert("Vul zowel username als wachtwoord in.");
+            }
         }
     </script>
 

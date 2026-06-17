@@ -1,6 +1,7 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+if(!$_SESSION['role'] || $_SESSION['role'] === 'klant') header('location: index.php'); exit;
+
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
@@ -19,15 +20,15 @@ if ($conn->connect_error) {
 
 $sql = "SELECT
             `ID`,
-            `Bedijf naam`,
-            `Voornaam`,
-            `Tussenvoegsel`,
-            `Achternaam`,
-            `Functie`,
-            `Email`,
-            `Telefoon nummer`,
-            `Address`
-        FROM `Klanten`";
+            `First_name`,
+            `Name_prefix`,
+            `Last_name`,
+            `E-mail`,
+            `Phone_number`,
+            `Address`,
+            `Postal_code`,
+            `Land`
+        FROM `customers`";
 
 $result = $conn->query($sql);
 
@@ -37,29 +38,26 @@ if (!$result) {
 
 ?>
 
-
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<title>Klanten</title>
 
 <style>
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background: #083c32;
-        background-image: repeating-linear-gradient(
-            0deg,
-            rgba(255,255,255,0.05) 0px,
-            rgba(255,255,255,0.05) 1px,
-            transparent 1px,
-            transparent 15px
-        );
+        background: #8e72ae;   
     }
 
     /* Navigatiebalk */
   nav {
-    background: #e8f7ee;
-    padding: 15px;
+    background: #faf0ff;
+    padding: 20px;
     display: flex;
     justify-content: center;
-    border-bottom: 3px solid #083c32;
+    border-bottom: 3px solid #000000;
 }
 
 nav .links a {
@@ -69,21 +67,24 @@ nav .links a {
     color: #000;
     font-weight: bold;
     text-decoration: none;
-    border-right: 2px solid #083c32;
+    border-right: 2px solid #000000;
 }
 
 nav .links a:last-child {
     border-right: none;
 }
 
-    .searchbar {
-        background: white;
-        border-radius: 20px;
-        padding: 5px 10px;
-        border: 2px solid #0a4f42;
-        display: flex;
-        align-items: center;
-    }
+    /* Zoekveld */
+.searchbar {
+    background: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+    border: 2px solid #000000;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+}
+
     .searchbar input {
         border: none;
         outline: none;
@@ -94,12 +95,12 @@ nav .links a:last-child {
 
     /* Container */
     .container {
-        background: #e8f7ee;
+        background: #faf0ff;
         margin: 40px auto;
         width: 80%;
         padding: 30px;
         border-radius: 20px;
-        border: 4px solid #0a4f42;
+        border: 4px solid #000000;
     }
 
     /* Titel + icoon */
@@ -131,17 +132,17 @@ nav .links a:last-child {
 table th {
     position: sticky;
     top: 0;
-    background: #d7e9dd !important;
+    background: #d0bbda !important;
     z-index: 2;
     padding: 10px;
-    border-bottom: 3px solid #0a4f42;
+    border-bottom: 3px solid #000000;
 }
 table td {
     padding: 10px;
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid #000000;
 }
 table tr:hover {
-    background: #f1f1f1;
+    background: #f0e2f7;
 }
 @media print {
 
@@ -167,14 +168,14 @@ table tr:hover {
     }
 
     table th {
-        background: #d7e9dd !important;
+        background: #000000 !important;
         -webkit-print-color-adjust: exact;
-        border-bottom: 2px solid #0a4f42 !important;
+        border-bottom: 2px solid #000000 !important;
         position: static !important;  /* <— Belangrijk: sticky uitschakelen in print */
     }
 
     table td {
-        border-bottom: 1px solid #ccc !important;
+        border-bottom: 1px solid #000000 !important;
     }
 
     /* Pagina-vulling verminderen */
@@ -183,8 +184,9 @@ table tr:hover {
         background: white !important;
     }
 }
+/* PDF knop */
 .pdf-btn {
-    background: #b30000;           /* rood */
+    background: #8e72ae;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -192,13 +194,10 @@ table tr:hover {
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;                      /* ruimte tussen icoon en tekst */
 }
 
 .pdf-btn:hover {
-    background: #8a0000;          /* donkerder rood */
+    background: #786194;          /* donkerder rood */
 }
 ``
 </style>
@@ -209,13 +208,12 @@ table tr:hover {
 <!-- Navigatie -->
 <nav>
     <div class="links">
-        <a href="index.php">home</a>
-        <a href="medewerkers.php">medewerkers</a>
-        <a href="klanten.php">klanten</a>
-        <a href="werkzaamheden.php">werkzaamheden</a>
-        <a href="uren.php">uren</a>
-        <a href="werkgevers.php">werkgevers</a>
-        <a href="opdrachten.php">opdrachten</a>
+        <a href="index.php">Home</a>
+        <a href="Employers.php">Werkgevers</a>   
+        <a href="Workers.php">Werknemers</a>
+        <a href="klanten.php">Klanten</a>
+        <a href="opdrachten.php">Opdrachten</a>
+        <a href="werkzaamheden.php">Werkzaamheden</a>
     </div>
 
     
@@ -225,7 +223,7 @@ table tr:hover {
 <div class="container">
 
     <div class="title-row">
-        <h1><span class="title-icon"></span> klanten</h1>
+        <h1><span class="title-icon"></span> Klanten</h1>
         <button class="pdf-btn" onclick="window.print()">🖨️ Als PDF opslaan</button>
 
         <div class="searchbar">
@@ -237,14 +235,14 @@ table tr:hover {
     <table>
         <tr>
             <th>ID</th>
-            <th>Bedijf naam</th>
             <th>Voornaam</th>
             <th>Tussenvoegsel</th>
             <th>Achternaam</th>
-            <th>Functie</th>
-            <th>Email</th>
-            <th>Telefoon nummer</th>
+            <th>E-mail</th>
+            <th>Telefoonnummer</th>
             <th>Adres</th>
+            <th>Postcode</th>
+            <th>Land</th>
         </tr>
 </table>
 
@@ -255,14 +253,14 @@ table tr:hover {
             while($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td>".$row['ID']."</td>";
-                echo "<td>".$row['Bedijf naam']."</td>";
-                echo "<td>".$row['Voornaam']."</td>";
-                echo "<td>".$row['Tussenvoegsel']."</td>";
-                echo "<td>".$row['Achternaam']."</td>";
-                echo "<td>".$row['Functie']."</td>";
-                echo "<td>".$row['Email']."</td>";
-                echo "<td>".$row['Telefoon nummer']."</td>";
+                echo "<td>".$row['First_name']."</td>";
+                echo "<td>".$row['Name_prefix']."</td>";
+                echo "<td>".$row['Last_name']."</td>";
+                echo "<td>".$row['E-mail']."</td>";
+                echo "<td>".$row['Phone_number']."</td>";
                 echo "<td>".$row['Address']."</td>";
+                echo "<td>".$row['Postal_code']."</td>";
+                echo "<td>".$row['Land']."</td>";
                 echo "</tr>";
             }
         } else {
