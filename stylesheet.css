@@ -77,6 +77,10 @@ nav .links a:last-child {
         align-items: center;
     }
 
+    h2 {
+        font-weight: lighter;
+    }
+
     /* Tabel */
     table {
     width: 100%;
@@ -114,6 +118,7 @@ table tr:hover {
         box-shadow: none;
         border: none;
         padding: 0;
+        align-items: center;
     }
 
     /* Fix tabel-borders & spacing in PDF */
@@ -153,4 +158,122 @@ table tr:hover {
 
 .pdf-btn:hover {
     background: #786194;          /* donkerder rood */
+}
+
+.buttonlogout {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+
+}
+
+.klantbutton {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.medewerkerbutton {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.leidinggevendebutton {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.inlogbutton {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.buttonlogout:hover {
+    background: #755994;
+}
+.klantbutton:hover {
+    background: #755994;
+}
+.medewerkerbutton:hover {
+    background: #755994;
+}
+.leidinggevendebutton:hover {
+    background: #755994;
+}
+.inlogbutton:hover {
+    background: #755994;
+}
+
+/* medewerker knoppen */
+.werkgevertoevoegen {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.werkgeverbewerken {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.werkgeververwijderen {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.werkgevertoevoegen:hover {
+    background: #755994;
+}
+.werkgeverbewerken:hover {
+    background: #755994;
+}
+.werkgeververwijderen:hover {
+    background: #755994;
 }

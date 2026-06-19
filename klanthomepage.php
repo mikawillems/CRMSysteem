@@ -33,16 +33,16 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
 
     <div class="container">
 
-        <h1>Welkom in het CRM-Systeem</h1>
+        <h1>Je bent ingelogd als klant</h1>
 
         <div class="content">
-            <h2> Log in als klant, werknemer of leidinggevende.</h2>
+            <h2> Hier kun je opdrachten of werkzaamheden bekijken</h2>
 
         </div>
 
 
 
-                <!-- Login buttons voor klant, werk\nemer, leidinggevende -->
+                <!-- Login buttons voor klant, medewerker, leidinggevende -->
                 <?php include 'loginbuttons.php' ?>
             </div>
         </div>
