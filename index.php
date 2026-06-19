@@ -36,9 +36,11 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
         <h1>Welkom in het CRM-Systeem</h1>
 
         <div class="content">
-            <h2> Log in als klant, werknemer of leidinggevende.</h2>
+            <h2> Kies één van de opties hieronder!</h2>
 
         </div>
+
+        
 
 
 

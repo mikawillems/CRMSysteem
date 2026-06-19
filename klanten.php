@@ -62,9 +62,9 @@ if (!$result) {
         <div class="title-row">
             <h1><span class="title-icon"></span> Klanten</h1>
 
-            <button class="werkgevertoevoegen"> Klant toevoegen</button>
-            <button class="werkgeverbewerken"> Klant bewerken</button>
-            <button class="werkgeververwijderen"> Klant verwijderen</button> 
+            <button class="klanttoevoegen"> Klant toevoegen</button>
+            <button class="klantbewerken"> Klant bewerken</button>
+            <button class="klantverwijderen"> Klant verwijderen</button> 
             <button class="pdf-btn" onclick="window.print()">🖨️ Als PDF opslaan</button>
 
             <div class="searchbar">

@@ -55,9 +55,9 @@ if (!$result) {
         <div class="title-row">
             <h1>Opdrachten</h1>
 
-            <button class="werkgevertoevoegen"> Opdrachten toevoegen</button>
-            <button class="werkgeverbewerken"> Opdrachten bewerken</button>
-            <button class="werkgeververwijderen"> Opdrachten verwijderen</button>
+            <button class="opdrachttoevoegen"> Opdrachten toevoegen</button>
+            <button class="opdrachtbewerken"> Opdrachten bewerken</button>
+            <button class="opdrachtverwijderen"> Opdrachten verwijderen</button>
             <button class="pdf-btn" onclick="window.print()">🖨️ Als PDF opslaan</button>
             <div class="searchbar">
                 <input type="text" id="search" placeholder="zoeken..."> 🔍

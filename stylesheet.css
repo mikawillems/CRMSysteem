@@ -1,13 +1,13 @@
 body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #8e72ae;
-        
-        
-    }
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #8e72ae;
 
-    /* Navigatiebalk */
-  nav {
+
+}
+
+/* Navigatiebalk */
+nav {
     background: #faf0ff;
     padding: 20px;
     display: flex;
@@ -29,7 +29,7 @@ nav .links a:last-child {
     border-right: none;
 }
 
-    /* Zoekveld */
+/* Zoekveld */
 .searchbar {
     background: white;
     border-radius: 20px;
@@ -40,69 +40,71 @@ nav .links a:last-child {
     margin: 8px;
 }
 
-    .searchbar input {
-        border: none;
-        outline: none;
-        font-size: 15px;
-        padding-left: 5px;
-        background: transparent;
-    }
+.searchbar input {
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding-left: 5px;
+    background: transparent;
+}
 
-    /* Container */
-    .container {
-        background: #faf0ff;
-        margin: 40px auto;
-        width: 80%;
-        padding: 30px;
-        border-radius: 20px;
-        border: 4px solid #000000;
-    }
+/* Container */
+.container {
+    background: #faf0ff;
+    margin: 40px auto;
+    width: 80%;
+    padding: 30px;
+    border-radius: 20px;
+    border: 4px solid #000000;
+}
 
-    /* Titel + icoon */
-    .title-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+/* Titel + icoon */
+.title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-    .title-icon {
-        font-size: 35px;
-        margin-right: 10px;
-    }
+.title-icon {
+    font-size: 35px;
+    margin-right: 10px;
+}
 
-    h1 {
-        margin: 0;
-        font-size: 30px;
-        display: flex;
-        align-items: center;
-    }
+h1 {
+    margin: 0;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+}
 
-    h2 {
-        font-weight: lighter;
-    }
+h2 {
+    font-weight: lighter;
+}
 
-    /* Tabel */
-    table {
+/* Tabel */
+table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
 }
 
 table th {
-    position: sticky;
     top: 0;
     background: #d0bbda !important;
     z-index: 2;
     padding: 10px;
     border-bottom: 3px solid #000000;
 }
+
 table td {
     padding: 10px;
     border-bottom: 1px solid #000000;
 }
+
 table tr:hover {
     background: #f0e2f7;
 }
+
 @media print {
 
     /* Verberg elementen die niet in PDF moeten komen */
@@ -131,7 +133,8 @@ table tr:hover {
         background: #000000 !important;
         print-color-adjust: exact;
         border-bottom: 2px solid #000000 !important;
-        position: static !important;  /* <— Belangrijk: sticky uitschakelen in print */
+        position: static !important;
+        /* <— Belangrijk: sticky uitschakelen in print */
     }
 
     table td {
@@ -144,11 +147,12 @@ table tr:hover {
         background: white !important;
     }
 }
+
 /* PDF knop */
 .pdf-btn {
     background: #8e72ae;
     color: white;
-    padding: 8px 15px;
+    padding: 5px 5px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -157,7 +161,8 @@ table tr:hover {
 }
 
 .pdf-btn:hover {
-    background: #786194;          /* donkerder rood */
+    background: #786194;
+    /* donkerder rood */
 }
 
 .buttonlogout {
@@ -219,21 +224,25 @@ table tr:hover {
 .buttonlogout:hover {
     background: #755994;
 }
+
 .klantbutton:hover {
     background: #755994;
 }
+
 .medewerkerbutton:hover {
     background: #755994;
 }
+
 .leidinggevendebutton:hover {
     background: #755994;
 }
+
 .inlogbutton:hover {
     background: #755994;
 }
 
-/* medewerker knoppen */
-.werkgevertoevoegen {
+/* werkgever knoppen */
+#openModalBtn {
     background: #8e72ae;
     color: white;
     padding: 8px 15px;
@@ -271,9 +280,251 @@ table tr:hover {
 .werkgevertoevoegen:hover {
     background: #755994;
 }
+
 .werkgeverbewerken:hover {
     background: #755994;
 }
+
 .werkgeververwijderen:hover {
     background: #755994;
 }
+
+/* medewerker knoppen */
+.werkgevertoevoegen {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.medewerkerbewerken {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.medewerkerverwijderen {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#openModalBtn:hover {
+    background: #755994;
+}
+
+.medewerkerbewerken:hover {
+    background: #755994;
+}
+
+.medewerkerverwijderen:hover {
+    background: #755994;
+}
+
+/* klant knoppen */
+.klanttoevoegen {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.klantbewerken {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.klantverwijderen {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.klanttoevoegen:hover {
+    background: #755994;
+}
+
+.klantbewerken:hover {
+    background: #755994;
+}
+
+.klantverwijderen:hover {
+    background: #755994;
+}
+
+/* opdracht knoppen */
+.opdrachttoevoegen {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.opdrachtbewerken {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.opdrachtverwijderen {
+    background: #8e72ae;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.opdrachttoevoegen:hover {
+    background: #755994;
+}
+
+.opdrachtbewerken:hover {
+    background: #755994;
+}
+
+.opdrachtverwijderen:hover {
+    background: #755994;
+}
+
+/* werkzaamheid knoppen */
+.werkzaamheidtoevoegen {
+    background: #8e72ae;
+    color: white;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 1%;
+}
+
+
+.werkzaamheidbewerken {
+    background: #8e72ae;
+    color: white;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 1%;
+
+}
+
+
+.werkzaamheidverwijderen {
+    background: #8e72ae;
+    color: white;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 1%;
+
+}
+
+.werkzaamheidtoevoegen:hover {
+    background: #755994;
+}
+
+.werkzaamheidbewerken:hover {
+    background: #755994;
+}
+
+.werkzaamheidverwijderen:hover {
+    background: #755994;
+}
+
+/* De achtergrond van de pop-up (standaard verborgen) */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.5); /* Donkere transparante achtergrond */
+        }
+
+        /* De pop-up box zelf */
+        .modal-content {
+            background-color:  #8e72ae;
+            margin: 15% auto; 
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        /* De sluitknop (het kruisje) */
+        .close-btn {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Layout voor het formulier binnen de pop-up */
+        .modal-content input, .modal-content button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        

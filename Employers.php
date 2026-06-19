@@ -56,9 +56,57 @@ if (!$result) {
             <h1>Werkgevers</h1>
 
 
-            <button class="werkgevertoevoegen"> Medewerker toevoegen</button>
-            <button class="werkgeverbewerken"> Medewerker bewerken</button>
-            <button class="werkgeververwijderen"> Medewerker verwijderen</button>
+            <button id="openModalBtn">Werkgever toevoegen</button>
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn" id="closeModalBtn">&times;</span>
+                    <h3>Nieuwe Werkgever</h3>
+
+                    <form action="voegtoe.php" method="POST">
+                        <label for="naam">Naam:</label>
+                        <input type="text" id="naam" name="medewerker_naam" required placeholder="Typ naam...">
+                        <br><label for="naam">Tussenvoegsel:</label>
+                        <input type="text" id="naam" name="medewerker_naam" required placeholder="Typ tussenvoegsel...">
+                        <br><label for="naam">Achternaam:</label>
+                        <input type="text" id="naam" name="medewerker_naam" required placeholder="Typ achternaam...">
+                        <br><label for="naam">Geboortedatum:</label>
+                        <input type="date" id="naam" name="medewerker_naam"
+                        <br><label for="naam">Werkmail:</label>
+                        <input type="text" id="naam" name="medewerker_naam" required placeholder="Typ werkmail...">
+                        <br><label for="naam">Vestiging:</label>
+                        <input type="text" id="naam" name="medewerker_naam" required placeholder="Typ vestiging...">
+
+                        <br><button type="submit">Opslaan</button>
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                // JavaScript om de pop-up te besturen
+                const modal = document.getElementById("myModal");
+                const openBtn = document.getElementById("openModalBtn");
+                const closeBtn = document.getElementById("closeModalBtn");
+
+                // Open de pop-up als je op de hoofdknop klikt
+                openBtn.onclick = function () {
+                    modal.style.display = "block";
+                }
+
+                // Sluit de pop-up als je op het kruisje klikt
+                closeBtn.onclick = function () {
+                    modal.style.display = "none";
+                }
+
+                // Sluit de pop-up ook als je ergens buiten de pop-up box klikt
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+            <button class="werkgeverbewerken"> Werkgever bewerken</button>
+            <button class="werkgeververwijderen"> Werkgever verwijderen</button>
             <button class="pdf-btn" onclick="window.print()">🖨️ Als PDF opslaan</button>
 
             <div class="searchbar">
