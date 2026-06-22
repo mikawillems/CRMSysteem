@@ -56,15 +56,75 @@ if (!$result) {
 
     </nav>
 
-    
+
     <div class="container">
 
         <div class="title-row">
             <h1><span class="title-icon"></span> Klanten</h1>
 
-            <button class="klanttoevoegen"> Klant toevoegen</button>
+
+
+            <button id="openModalBtn">Klant toevoegen</button>
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn" id="closeModalBtn">&times;</span>
+                    <h3>Nieuwe Klant</h3>
+
+                    <form action="voegtoe.php" method="POST">
+
+                        <label for="name">Voornaam:</label>
+                        <input type="text" id="name" name="First_name" required placeholder="Typ naam...">
+                        <br><label for="name">Tussenvoegsel:</label>
+                        <input type="text" id="name" name="Name_prefix" required placeholder="Typ tussenvoegsel...">
+                        <br><label for="name">Achternaam:</label>
+                        <input type="text" id="name" name="Last_name" required placeholder="Typ achternaam...">
+                        <br><label for="text">E-mail:</label>
+                        <input type="text" id="email" name="E-mail" required placeholder="Typ E-mail...">
+                        <label for="numbers">Telefoonnummer:</label>
+                        <input type="text" id="telefoonnummer" name="Phone_number" required
+                            placeholder="Typ telefoonnummer...">
+                        <br><label for="location">Adres:</label>
+                        <input type="text" id="adres" name="Address" required placeholder="Typ adres...">
+                        <br><label for="location">Postcode:</label>
+                        <input type="text" id="text" name="Postal_code" required placeholder="Typ postcode...">
+                        <br><label for="country">Land:</label>
+                        <input type="country" id="text" name="Postal_code" required placeholder="Typ land...">
+
+
+                        <br><button class="opslaanbutton" type="submit">Opslaan</button>
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                // JavaScript om de pop-up te besturen
+                const modal = document.getElementById("myModal");
+                const openBtn = document.getElementById("openModalBtn");
+                const closeBtn = document.getElementById("closeModalBtn");
+
+                // Open de pop-up als je op de hoofdknop klikt
+                openBtn.onclick = function () {
+                    modal.style.display = "block";
+                }
+
+                // Sluit de pop-up als je op het kruisje klikt
+                closeBtn.onclick = function () {
+                    modal.style.display = "none";
+                }
+
+                // Sluit de pop-up ook als je ergens buiten de pop-up box klikt
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+
+
+
             <button class="klantbewerken"> Klant bewerken</button>
-            <button class="klantverwijderen"> Klant verwijderen</button> 
+            <button class="klantverwijderen"> Klant verwijderen</button>
             <button class="pdf-btn" onclick="window.print()">🖨️ Als PDF opslaan</button>
 
             <div class="searchbar">

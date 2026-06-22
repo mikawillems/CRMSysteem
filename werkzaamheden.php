@@ -62,10 +62,59 @@ if (!$result) {
         <div class="title-row">
             <h1>Werkzaamheden</h1>
 
-            <button class="werkzaamheidtoevoegen"> Werkzaamheid toevoegen</button>
+            <button id="openModalBtn">Werkzaamheid toevoegen</button>
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn" id="closeModalBtn">&times;</span>
+                    <h3>Nieuwe werkzaamheid</h3>
+
+                    <form action="voegtoe.php" method="POST">
+
+                        <label for="name">Opdracht-ID:</label>
+                        <input type="text" id="name" name="Opdracht_ID" required placeholder="Typ opdracht-ID...">
+                        <br><label for="name">Werknemer-ID:</label>
+                        <input type="text" id="name" name="Worker_ID" required placeholder="Typ werknemer-ID...">
+                        <br><label for="name">Gewerkte uren:</label>
+                        <input type="text" id="name" name="Worked_hours" required placeholder="Typ gewerkte uren...">
+
+                        <br><button class="opslaanbutton" type="submit">Opslaan</button>
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                // JavaScript om de pop-up te besturen
+                const modal = document.getElementById("myModal");
+                const openBtn = document.getElementById("openModalBtn");
+                const closeBtn = document.getElementById("closeModalBtn");
+
+                // Open de pop-up als je op de hoofdknop klikt
+                openBtn.onclick = function () {
+                    modal.style.display = "block";
+                }
+
+                // Sluit de pop-up als je op het kruisje klikt
+                closeBtn.onclick = function () {
+                    modal.style.display = "none";
+                }
+
+                // Sluit de pop-up ook als je ergens buiten de pop-up box klikt
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
             <button class="werkzaamheidbewerken"> Werkzaamheid bewerken</button>
             <button class="werkzaamheidverwijderen"> Werkzaamheid verwijderen</button>
-            <button class="werkzaamheidverwijderen"> Uren invullen</button>
+
+
+
+
+
+            
+            
             <button class="pdf-btn" onclick="window.print()">🖨️ Als PDF opslaan</button>
             <div class="searchbar">
                 <input type="text" id="search" placeholder="zoeken..."> 🔍

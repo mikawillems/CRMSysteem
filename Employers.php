@@ -64,20 +64,21 @@ if (!$result) {
                     <h3>Nieuwe Werkgever</h3>
 
                     <form action="voegtoe.php" method="POST">
-                        <label for="naam">Naam:</label>
-                        <input type="text" id="naam" name="medewerker_naam" required placeholder="Typ naam...">
-                        <br><label for="naam">Tussenvoegsel:</label>
-                        <input type="text" id="naam" name="medewerker_naam" required placeholder="Typ tussenvoegsel...">
-                        <br><label for="naam">Achternaam:</label>
-                        <input type="text" id="naam" name="medewerker_naam" required placeholder="Typ achternaam...">
-                        <br><label for="naam">Geboortedatum:</label>
-                        <input type="date" id="naam" name="medewerker_naam"
-                        <br><label for="naam">Werkmail:</label>
-                        <input type="text" id="naam" name="medewerker_naam" required placeholder="Typ werkmail...">
-                        <br><label for="naam">Vestiging:</label>
-                        <input type="text" id="naam" name="medewerker_naam" required placeholder="Typ vestiging...">
 
-                        <br><button type="submit">Opslaan</button>
+                        <label for="name">Voornaam:</label>
+                        <input type="text" id="name" name="First_name" required placeholder="Typ naam...">
+                        <br><label for="name">Tussenvoegsel:</label>
+                        <input type="text" id="name" name="Name_prefix" required placeholder="Typ tussenvoegsel...">
+                        <br><label for="name">Achternaam:</label>
+                        <input type="text" id="name" name="Last_name" required placeholder="Typ achternaam...">
+                        <br><label for="date">Geboortedatum:</label>
+                        <input type="date" id="name" name="Date_of_birth"
+                        <br><label for="mail">Werkmail:</label>
+                        <input type="text" id="name" name="Work_E-mail" required placeholder="Typ werkmail...">
+                        <br><label for="location">Vestiging:</label>
+                        <input type="text" id="name" name="Location/Branch" required placeholder="Typ vestiging...">
+
+                        <br><button class="opslaanbutton" type="submit">Opslaan</button>
                     </form>
                 </div>
             </div>
@@ -107,6 +108,13 @@ if (!$result) {
             </script>
             <button class="werkgeverbewerken"> Werkgever bewerken</button>
             <button class="werkgeververwijderen"> Werkgever verwijderen</button>
+
+
+
+
+
+
+            
             <button class="pdf-btn" onclick="window.print()">🖨️ Als PDF opslaan</button>
 
             <div class="searchbar">

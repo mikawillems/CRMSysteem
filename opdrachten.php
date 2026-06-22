@@ -1,10 +1,17 @@
 <?php
-// 1. Start de sessie ALTIJD als allereerste om toegang te krijgen tot de ingelogde gebruiker
 session_start();
+// 1. Start altijd eerst de sessie om toegang te krijgen tot $_SESSION
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-// De foute $_SESSION['username'] = $user['username'] regels zijn hier verwijderd!
+// Veiligheidscheck: als er niemand is ingelogd, stuur ze terug naar de homepagina
+if (!isset($_SESSION['role'])) {
+    header('Location: index.php');
+    exit();
+}
 
-// 2. Laad de vendor en dotenv bestanden
+// 2. Laden van de database variabelen via Dotenv
 require __DIR__ . '/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -15,17 +22,18 @@ $Username = $_ENV['DB_USERNAME'];
 $Password = $_ENV['DB_PASSWORD'];
 $Dbname = $_ENV['DB_NAME'];
 
+// 3. Verbinding maken met mysqli
 $conn = new mysqli($Servername, $Username, $Password, $Dbname);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// === SQL-Query voor het ophalen van opdrachten ===
-$sql = "SELECT
-            `ID`,
-            `Customer_ID`,
-            `Titel`,
+// 4. Query specifiek voor Werkzaamheden
+$sql = "SELECT 
+            `ID`, 
+            `Customer_ID`, 
+            `Titel`, 
             `Description`,
             `Aplication_date`,
             `Needed_knowledge`
@@ -55,9 +63,56 @@ if (!$result) {
         <div class="title-row">
             <h1>Opdrachten</h1>
 
-            <button class="opdrachttoevoegen"> Opdrachten toevoegen</button>
-            <button class="opdrachtbewerken"> Opdrachten bewerken</button>
-            <button class="opdrachtverwijderen"> Opdrachten verwijderen</button>
+            <button id="openModalBtn">Opdracht toevoegen</button>
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn" id="closeModalBtn">&times;</span>
+                    <h3>Nieuwe opdracht</h3>
+
+                    <form action="voegtoe.php" method="POST">
+
+                        <label for="name">Klant-ID:</label>
+                        <input type="text" id="name" name="Customer_ID" required placeholder="Typ klant-ID...">
+                        <br><label for="name">Titel:</label>
+                        <input type="text" id="name" name="Titel" required placeholder="Typ titel...">
+                        <br><label for="name">Omschrijving:</label>
+                        <input type="text" id="name" name="Description" required placeholder="Typ omschrijving...">
+                        <br><label for="date">Aanvraag datum:</label>
+                        <input type="date" id="name" name="Aplication_date"
+                        <br><label for="mail">Benodigde kennis:</label>
+                        <input type="text" id="name" name="Needed_knowledge" required placeholder="Typ benodigde kennis...">
+
+                        <br><button class="opslaanbutton" type="submit">Opslaan</button>
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                // JavaScript om de pop-up te besturen
+                const modal = document.getElementById("myModal");
+                const openBtn = document.getElementById("openModalBtn");
+                const closeBtn = document.getElementById("closeModalBtn");
+
+                // Open de pop-up als je op de hoofdknop klikt
+                openBtn.onclick = function () {
+                    modal.style.display = "block";
+                }
+
+                // Sluit de pop-up als je op het kruisje klikt
+                closeBtn.onclick = function () {
+                    modal.style.display = "none";
+                }
+
+                // Sluit de pop-up ook als je ergens buiten de pop-up box klikt
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+            <button class="opdrachtbewerken"> Opdracht bewerken</button>
+            <button class="opdrachtverwijderen"> Opdracht verwijderen</button>
             <button class="pdf-btn" onclick="window.print()">🖨️ Als PDF opslaan</button>
             <div class="searchbar">
                 <input type="text" id="search" placeholder="zoeken..."> 🔍
