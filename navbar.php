@@ -9,7 +9,6 @@
         <a href="Employers.php">Werkgevers</a>
         <a href="Workers.php">Werknemers</a>
         <a href="klanten.php">Klanten</a>
-        <a href="rapporten.php">Rapportages</a>
       <?php
       } // Als de gebruiker een KLANT is, ziet hij de bovenstaande links dus NIET 
       ?>
