@@ -127,6 +127,7 @@ if (!$result) {
                 <th>Omschrijving</th>
                 <th>Aanvraag datum</th>
                 <th>Benodigde kennis</th>
+                <th>&nbsp;</th>
             </tr>
 
             <?php
@@ -139,6 +140,7 @@ if (!$result) {
                     echo "<td>{$row['Description']}</td>";
                     echo "<td>{$row['Aplication_date']}</td>";
                     echo "<td>{$row['Needed_knowledge']}</td>";
+                    echo "<td><button data-id=\"{$row['ID']}\" class=\"facturen\">factuur</button></td>";
                     echo "</tr>";
                 }
             } else {
@@ -157,6 +159,21 @@ if (!$result) {
                 row.style.display = row.textContent.toLowerCase().includes(val) ? "" : "none";
             });
         });
+
+        const factuurButtons = document.querySelectorAll(".facturen");
+        if(factuurButtons && factuurButtons.length > 0) {
+            factuurButtons.forEach( function(btn) {
+                btn.addEventListener("click", (e) => {
+                    console.log("clicked button", btn)
+                    const opdrachtId = btn.dataset.id;
+                    window.location.href = "factuur.php?opdrachtid=" + opdrachtId;
+
+
+                })
+            })
+        }
+
+
     </script>
 
 </body>
