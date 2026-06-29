@@ -1,4 +1,7 @@
   <nav>
+    <a href="index.php" style="text-decoration: none;"><h1 class="logo"><span id="gildeLogo">Gilde</span><span id="devopsLogo">Devops</span></h1></a>
+
+
     <div class="links">
       <a href="index.php">Home</a>
 

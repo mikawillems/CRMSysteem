@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #8e72ae;
+    background: #00365e;
 
 
 }
@@ -12,17 +12,17 @@ nav {
     padding: 20px;
     display: flex;
     justify-content: center;
-    border-bottom: 3px solid #000000;
+    border-bottom: 3px solid #dd0069;
 }
 
 nav .links a {
     margin: 0;
     padding-right: 15px;
     padding-left: 15px;
-    color: #000;
+    color: #ffffff;
     font-weight: bold;
     text-decoration: none;
-    border-right: 2px solid #000000;
+    border-right: 2px solid white;
 }
 
 nav .links a:last-child {
@@ -50,12 +50,12 @@ nav .links a:last-child {
 
 /* Container */
 .container {
-    background: #faf0ff;
+    background: #ffffff;
     margin: 40px auto;
     width: 80%;
     padding: 30px;
     border-radius: 20px;
-    border: 4px solid #000000;
+    border: 4px solid #00365e;
 }
 
 /* Titel + icoon */
@@ -90,19 +90,19 @@ table {
 
 table th {
     top: 0;
-    background: #d0bbda !important;
+    background: #dd0069 !important;
     z-index: 2;
     padding: 10px;
-    border-bottom: 3px solid #000000;
+    border-bottom: 3px solid #ffffff;
 }
 
 table td {
     padding: 10px;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #9a9a9a;
 }
 
 table tr:hover {
-    background: #f0e2f7;
+    background: #f6f6f6;
 }
 
 @media print {
@@ -130,7 +130,7 @@ table tr:hover {
     }
 
     table th {
-        background: #000000 !important;
+        background: #ffffff !important;
         print-color-adjust: exact;
         border-bottom: 2px solid #000000 !important;
         position: static !important;
@@ -138,7 +138,7 @@ table tr:hover {
     }
 
     table td {
-        border-bottom: 1px solid #000000 !important;
+        border-bottom: 1px solid #dd0069 !important;
     }
 
     /* Pagina-vulling verminderen */
@@ -150,9 +150,9 @@ table tr:hover {
 
 /* PDF knop */
 .pdf-btn {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
-    padding: 5px 5px;
+    padding: 6px 6px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -161,12 +161,12 @@ table tr:hover {
 }
 
 .pdf-btn:hover {
-    background: #786194;
+    background: #012d4e;
     /* donkerder rood */
 }
 
 .buttonlogout {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -178,7 +178,7 @@ table tr:hover {
 }
 
 .klantbutton {
-    background: #8e72ae;
+    background: #dd0069;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -189,7 +189,7 @@ table tr:hover {
 }
 
 .medewerkerbutton {
-    background: #8e72ae;
+    background: #dd0069;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -200,7 +200,7 @@ table tr:hover {
 }
 
 .leidinggevendebutton {
-    background: #8e72ae;
+    background: #dd0069;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -211,7 +211,7 @@ table tr:hover {
 }
 
 .inlogbutton {
-    background: #8e72ae;
+    background: #dd0069;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -222,28 +222,28 @@ table tr:hover {
 }
 
 .buttonlogout:hover {
-    background: #755994;
+    background: #c5005f;
 }
 
 .klantbutton:hover {
-    background: #755994;
+    background: #c5005f;
 }
 
 .medewerkerbutton:hover {
-    background: #755994;
+    background: #c5005f;
 }
 
 .leidinggevendebutton:hover {
-    background: #755994;
+    background: #c5005f;
 }
 
 .inlogbutton:hover {
-    background: #755994;
+    background: #c5005f;
 }
 
 /* werkgever knoppen */
 #openModalBtn {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -255,7 +255,7 @@ table tr:hover {
 
 
 .werkgeverbewerken {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -266,8 +266,8 @@ table tr:hover {
 }
 
 
-.werkgeververwijderen {
-    background: #8e72ae;
+#openDeleteModalBtn {
+    background: #00365e;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -278,20 +278,20 @@ table tr:hover {
 }
 
 .werkgevertoevoegen:hover {
-    background: #755994;
+    background: #012d4e;
 }
 
 .werkgeverbewerken:hover {
-    background: #755994;
+    background: #012d4e;
 }
 
-.werkgeververwijderen:hover {
-    background: #755994;
+#openDeleteModalBtn:hover {
+    background: #012d4e;
 }
 
 /* medewerker knoppen */
 .werkgevertoevoegen {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -303,7 +303,7 @@ table tr:hover {
 
 
 .medewerkerbewerken {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -315,7 +315,7 @@ table tr:hover {
 
 
 .medewerkerverwijderen {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -326,20 +326,20 @@ table tr:hover {
 }
 
 #openModalBtn:hover {
-    background: #755994;
+    background: #012d4e;
 }
 
 .medewerkerbewerken:hover {
-    background: #755994;
+    background: #012d4e;
 }
 
 .medewerkerverwijderen:hover {
-    background: #755994;
+    background: #012d4e;
 }
 
 /* klant knoppen */
 .klanttoevoegen {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -351,7 +351,7 @@ table tr:hover {
 
 
 .klantbewerken {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -363,7 +363,7 @@ table tr:hover {
 
 
 .klantverwijderen {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -374,20 +374,20 @@ table tr:hover {
 }
 
 .klanttoevoegen:hover {
-    background: #755994;
+    background: #012d4e;
 }
 
 .klantbewerken:hover {
-    background: #755994;
+    background: #012d4e;
 }
 
 .klantverwijderen:hover {
-    background: #755994;
+    background: #012d4e;
 }
 
 /* opdracht knoppen */
 .opdrachttoevoegen {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -399,7 +399,7 @@ table tr:hover {
 
 
 .opdrachtbewerken {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -411,7 +411,7 @@ table tr:hover {
 
 
 .opdrachtverwijderen {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -422,20 +422,20 @@ table tr:hover {
 }
 
 .opdrachttoevoegen:hover {
-    background: #755994;
+    background: #012d4e;
 }
 
 .opdrachtbewerken:hover {
-    background: #755994;
+    background: #012d4e;
 }
 
 .opdrachtverwijderen:hover {
-    background: #755994;
+    background: #012d4e;
 }
 
 /* werkzaamheid knoppen */
 .werkzaamheidtoevoegen {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
     padding: 5px 5px;
     border: none;
@@ -448,7 +448,7 @@ table tr:hover {
 
 
 .werkzaamheidbewerken {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
     padding: 5px 5px;
     border: none;
@@ -462,7 +462,7 @@ table tr:hover {
 
 
 .werkzaamheidverwijderen {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
     padding: 5px 5px;
     border: none;
@@ -474,16 +474,28 @@ table tr:hover {
 
 }
 
+#toggleEditBtn {
+    background: #00365e;
+    color: white;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 1%;
+}
+
 .werkzaamheidtoevoegen:hover {
-    background: #755994;
+    background: #012d4e;
 }
 
 .werkzaamheidbewerken:hover {
-    background: #755994;
+    background: #012d4e;
 }
 
 .werkzaamheidverwijderen:hover {
-    background: #755994;
+    background: #012d4e;
 }
 
 /* De achtergrond van de pop-up (standaard verborgen) */
@@ -495,7 +507,7 @@ table tr:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
     /* Donkere transparante achtergrond */
 }
 
@@ -531,7 +543,7 @@ table tr:hover {
 }
 
 .opslaanbutton {
-    background: #8e72ae;
+    background: #00365e;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -542,5 +554,36 @@ table tr:hover {
 }
 
 .opslaanbutton:hover {
-    background-color: #977eb4;
+    background-color: #012d4e;
+}
+
+.user-role {
+    color: #ffffff;
+}
+
+td {
+    color: #012d4e;
+}
+
+th {
+    color: #ffffff;
+}
+
+#logo {
+    scale: 40%;
+}
+
+#gildeLogo{
+    color: #ffffff;
+}
+
+#devopsLogo{
+    color: #00365e;
+}
+
+#cancelDeleteBtn {
+    background-color: #c5005f;
+    color: #ffffff;
+    border-radius: 8px;
+    border: none;
 }

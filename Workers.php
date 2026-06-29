@@ -101,8 +101,63 @@ if (!$result) {
                 }
             </script>
 
-            <button class="werkgeverbewerken"> Werknemer bewerken</button>
-            <button class="werkgeververwijderen"> Werknemer verwijderen</button>
+            <button id="toggleEditBtn" onclick="toggleEditMode()">Tabel bewerken</button> 
+            <button id="openDeleteModalBtn" data-id="12">Werknemer verwijderen</button>
+
+            <div id="deleteModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn" id="closeDeleteModalBtn">&times;</span>
+
+                    <h3>Werknemer Verwijderen</h3>
+                    <br><label for="location">ID van werknemer:</label>
+                    <input type="text" id="name" name="ID" required placeholder="Typ ID..">
+
+                    <p>Weet je zeker dat je deze werknemer wilt verwijderen?</p>
+
+                    <form action="verwijder.php" method="POST">
+                        <input type="hidden" id="delete_employee_id" name="Employee_ID" value="">
+
+                        <button class="opslaanbutton" style="background-color: #00365e;" type="submit">Ja,
+                            Verwijderen</button>
+                        <button type="button" id="cancelDeleteBtn">Annuleren</button>
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                // JavaScript voor de Verwijder Modal
+                const deleteModal = document.getElementById("deleteModal");
+                const openDeleteBtn = document.getElementById("openDeleteModalBtn");
+                const closeDeleteBtn = document.getElementById("closeDeleteModalBtn");
+                const cancelDeleteBtn = document.getElementById("cancelDeleteBtn");
+                const deleteInput = document.getElementById("delete_employee_id");
+
+                // Open de modal en stop het juiste ID in het verborgen formulier-veld
+                openDeleteBtn.onclick = function () {
+                    // Haal het ID op uit het 'data-id' attribuut van de knop
+                    const employeeId = this.getAttribute("data-id");
+                    deleteInput.value = employeeId;
+
+                    deleteModal.style.display = "block";
+                }
+
+                // Sluit de modal bij het kruisje
+                closeDeleteBtn.onclick = function () {
+                    deleteModal.style.display = "none";
+                }
+
+                // Sluit de modal bij de 'Annuleren' knop
+                cancelDeleteBtn.onclick = function () {
+                    deleteModal.style.display = "none";
+                }
+
+                // Sluit de modal als je buiten de box klikt (gecombineerd met je vorige code)
+                window.addEventListener('click', function (event) {
+                    if (event.target == deleteModal) {
+                        deleteModal.style.display = "none";
+                    }
+                });
+            </script>
             <button class="pdf-btn" onclick="window.print()">🖨️ Als PDF opslaan</button>
             <div class="searchbar">
                 <input type="text" id="search" placeholder="zoeken..."> 🔍
@@ -147,6 +202,7 @@ if (!$result) {
             });
         });
     </script>
+    <script src="editmode.js"></script>
 </body>
 
 </html>
