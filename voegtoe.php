@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $vestiging = $_POST['Location/Branch'];
 
     // 3. SQL Query voorbereiden (veilig tegen SQL-injection dankzij prepared statements)
-    $sql = "INSERT INTO medewerkers (naam, tussenvoegsel, achternaam, geboortedatum, werkmail, vestiging) 
+    $sql = "INSERT INTO workers (naam, tussenvoegsel, achternaam, geboortedatum, werkmail, vestiging) 
             VALUES (:naam, :tussenvoegsel, :achternaam, :geboortedatum, :werkmail, :vestiging)";
     
     $stmt = $pdo->prepare($sql);
